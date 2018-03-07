@@ -1,6 +1,7 @@
 package com.example.henrique.starwarsapi;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,8 +45,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<ViewHolder> {
         Planet planet = list.get(position);
 
         if(planet.type == 1){
-         //   holder.progressBar.setProgress(100);
+            Log.i("E", "Type1");
+
         } else if (planet.type == 0) {
+            Log.i("E", "Type 0 ");
 
             String population = String.format("Population: %s.", planet.population);
             String terrain = String.format("Terrain: %s.", planet.terrain);
