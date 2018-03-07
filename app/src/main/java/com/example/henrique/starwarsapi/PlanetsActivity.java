@@ -31,6 +31,7 @@ public class PlanetsActivity extends AppCompatActivity {
     private boolean loading = true;
     private int previousTotal = 0;
     private RecyclerAdapter recyclerAdapter;
+    private Planet fake;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +41,7 @@ public class PlanetsActivity extends AppCompatActivity {
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView = (RecyclerView) findViewById(R.id.recyclerViewPlanet);
         recyclerView.setLayoutManager(linearLayoutManager);
-        Planet fake = new Planet();
+         fake = new Planet();
         fake.type = 1;
         planetList.add(fake);
         recyclerAdapter = new RecyclerAdapter(planetList);
@@ -90,10 +91,12 @@ public class PlanetsActivity extends AppCompatActivity {
         final SwapiService service = retrofit.create(SwapiService.class);
         final Call<CallPlanet> requestPlanet = service.listPlanets(page);
         requestPlanet.enqueue(new Callback<CallPlanet>() {
+
             @Override
             public void onResponse(Call<CallPlanet> call, Response<CallPlanet> response) {
                 if (response.isSuccessful()) {
-                    planetList.remove(0);
+                    planetList.remove(fake);
+
                     Log.i("E", "Callback Success... CODE: #" + response.code() + ".");
                     if (page == 0) {
                         methodPlanets(1);
