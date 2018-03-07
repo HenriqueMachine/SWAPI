@@ -2,8 +2,6 @@ package com.example.henrique.starwarsapi;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -22,12 +20,12 @@ public class ViewHolder extends RecyclerView.ViewHolder {
     public TextView terrain;
     public TextView orbital_period;
     public TextView rotation_period;
-    public ProgressBar progressBar;
 
     public ViewHolder(View itemView, int viewType ) {
         super(itemView);
+        if (viewType == 1){
 
-        if (viewType == 0 ) {
+        }else if (viewType == 0 ) {
             this.orbital_period = itemView.findViewById(R.id.orbitalPlanet);
             this.rotation_period = itemView.findViewById(R.id.rotationPlanet);
             this.planetName = itemView.findViewById(R.id.titlePlanet);
@@ -37,8 +35,6 @@ public class ViewHolder extends RecyclerView.ViewHolder {
             this.diameter = itemView.findViewById(R.id.diameterPlanet);
             this.gravity = itemView.findViewById(R.id.gravityPlanet);
             this.terrain = itemView.findViewById(R.id.terrainPlanet);
-        }else if (viewType == 1){
-            this.progressBar = itemView.findViewById(R.id.progressBar2);
         }
     }
 }

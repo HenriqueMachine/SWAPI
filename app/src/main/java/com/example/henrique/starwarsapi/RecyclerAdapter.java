@@ -20,25 +20,23 @@ public class RecyclerAdapter extends RecyclerView.Adapter<ViewHolder> {
     private List<Planet> list;
     public RecyclerAdapter(List<Planet> Planets){
         this.list = Planets;
-
     }
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = null;
+        viewType = 1;
         if (viewType == 0) {
              view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item, parent, false);
         }else if (viewType == 1){
-            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_load, parent, true);
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_load, parent, false);
         }
         return new ViewHolder(view, viewType);
     }
-
     @Override
     public int getItemViewType(int position) {
         Planet planet = list.get(position);
         return super.getItemViewType(planet.type);
     }
-
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
 

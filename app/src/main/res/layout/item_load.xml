@@ -6,55 +6,38 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="16dp"
     app:cardCornerRadius="4dp"
-    app:cardElevation="8dp">
-
-    <LinearLayout
-        android:layout_marginTop="120dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+    app:cardElevation="8dp"
+    app:cardBackgroundColor="@color/colorPrimary">
 
         <LinearLayout
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
             android:layout_marginTop="24dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginRight="16dp"
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tvAguarde"
+                android:gravity="center"
+                android:textColor="@color/colorPrimary"
+                android:background="@color/colorAccent"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:id="@+id/tvLoading"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/colorAccent"
-                android:gravity="center"
-                android:text="AGUARDE"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textColor="@color/colorPrimary"
-                android:textSize="25dp"
-                android:textStyle="bold" />
+                android:text="WAIT A MOMENT..."
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
 
             <ProgressBar
-                android:id="@+id/progressBar2"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="25dp" />
-
-            <TextView
-                android:id="@+id/tvApres"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="CARREGANDO CONTEÚDO"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textColor="@color/colorPrimary"
-                android:textSize="25dp"
-                android:textStyle="bold" />
-
+                android:layout_marginBottom="20dp"/>
 
         </LinearLayout>
-    </LinearLayout>
 
 </android.support.v7.widget.CardView>
