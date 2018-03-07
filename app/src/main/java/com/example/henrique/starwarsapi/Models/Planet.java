@@ -16,6 +16,6 @@ public class Planet {
     public String terrain;
     public String surface_water;
 
-    public int type ;
+    public int type;
 
 }
