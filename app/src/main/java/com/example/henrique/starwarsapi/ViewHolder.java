@@ -40,6 +40,5 @@ public class ViewHolder extends RecyclerView.ViewHolder {
         }else if (viewType == 1){
             this.progressBar = itemView.findViewById(R.id.progressBar2);
         }
-
     }
 }

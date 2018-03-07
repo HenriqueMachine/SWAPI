@@ -28,7 +28,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<ViewHolder> {
         if (viewType == 0) {
              view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item, parent, false);
         }else if (viewType == 1){
-            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_load, parent, false);
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_load, parent, true);
         }
         return new ViewHolder(view, viewType);
     }
