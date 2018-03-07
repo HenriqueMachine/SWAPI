@@ -46,7 +46,7 @@ public class PlanetsActivity extends AppCompatActivity {
         recyclerAdapter = new RecyclerAdapter(planetList);
         recyclerView.setAdapter(recyclerAdapter);
 
-        methodPlanets(1);
+        methodPlanets(0);
 
         RecyclerView.OnScrollListener mScrollListener = new RecyclerView.OnScrollListener() {
             @Override
@@ -93,8 +93,10 @@ public class PlanetsActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<CallPlanet> call, Response<CallPlanet> response) {
                 if (response.isSuccessful()) {
+                    planetList.remove(0);
                     Log.i("E", "Callback Success... CODE: #" + response.code() + ".");
-                    if (page == 1) {
+                    if (page == 0) {
+                        methodPlanets(1);
                         CallPlanet list = response.body();
                         planetList = list.results;
                         recyclerView.setAdapter(recyclerAdapter);
