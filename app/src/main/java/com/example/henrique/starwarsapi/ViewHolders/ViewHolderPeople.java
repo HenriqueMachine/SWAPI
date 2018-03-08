@@ -2,6 +2,7 @@ package com.example.henrique.starwarsapi.ViewHolders;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.henrique.starwarsapi.R;
@@ -17,6 +18,7 @@ public class ViewHolderPeople extends RecyclerView.ViewHolder {
     public TextView birth_year;
     public TextView homeworld;
     public TextView skin_color;
+    public Button btnHome_World;
 
     public ViewHolderPeople(View itemView, int viewType) {
         super(itemView);
@@ -24,6 +26,8 @@ public class ViewHolderPeople extends RecyclerView.ViewHolder {
         if (viewType == 1){
 
         }else if (viewType == 0){
+
+            this.btnHome_World = itemView.findViewById(R.id.btnHomeWorld);
             this.name = itemView.findViewById(R.id.titleName);
             this.gender = itemView.findViewById(R.id.gender);
             this.birth_year = itemView.findViewById(R.id.birthYear);

@@ -74,7 +74,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <Button
-                android:id="@+id/btnResident"
+                android:id="@+id/btnHomeWorld"
                 android:background="@color/colorAccent"
                 android:text="HOMEWORLD"
                 android:layout_width="match_parent"

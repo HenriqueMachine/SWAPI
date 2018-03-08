@@ -1,16 +1,25 @@
 package com.example.henrique.starwarsapi.Adapters;
 
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.henrique.starwarsapi.Activity.HomeWorldActivity;
+import com.example.henrique.starwarsapi.Activity.MainActivity;
+import com.example.henrique.starwarsapi.Activity.PeopleActivity;
 import com.example.henrique.starwarsapi.Models.People;
+import com.example.henrique.starwarsapi.Models.Planet;
 import com.example.henrique.starwarsapi.R;
 import com.example.henrique.starwarsapi.ViewHolders.ViewHolderPeople;
 
 import java.util.List;
+
+import retrofit2.http.GET;
 
 /**
  * Created by henrique on 08/03/18.
@@ -20,10 +29,10 @@ public class RecycleAdapterPeople extends RecyclerView.Adapter<ViewHolderPeople>
 
     private List<People> peopleList;
 
-    public RecycleAdapterPeople(List<People> People){
+    public RecycleAdapterPeople(List<People> People, Context context){
+
         this.peopleList = People;
     }
-
     @Override
     public ViewHolderPeople onCreateViewHolder (ViewGroup parent, int viewType){
         View view = null;
@@ -40,9 +49,9 @@ public class RecycleAdapterPeople extends RecyclerView.Adapter<ViewHolderPeople>
         return people.type;
     }
     @Override
-    public void onBindViewHolder(ViewHolderPeople holder, int position) {
+    public void onBindViewHolder(final ViewHolderPeople holder, final int position) {
 
-        People people = peopleList.get(position);
+        final People people = peopleList.get(position);
 
         if(people.type == 1){
             Log.i("E", "Type1");
@@ -60,6 +69,13 @@ public class RecycleAdapterPeople extends RecyclerView.Adapter<ViewHolderPeople>
             holder.birth_year.setText(birthYear);
             holder.skin_color.setText(skinColor);
             holder.homeworld.setText(homeWorld);
+
+            holder.btnHome_World.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Log.i("E", "Clickou" + position);
+                }
+            });
 
         }
     }
