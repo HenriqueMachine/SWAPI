@@ -43,7 +43,7 @@ public class PlanetsActivity extends AppCompatActivity {
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView = (RecyclerView) findViewById(R.id.recyclerViewPlanet);
         recyclerView.setLayoutManager(linearLayoutManager);
-         fake = new Planet();
+        fake = new Planet();
         fake.type = 1;
         planetList.add(fake);
         recyclerAdapterPlanets = new RecyclerAdapterPlanets(planetList);

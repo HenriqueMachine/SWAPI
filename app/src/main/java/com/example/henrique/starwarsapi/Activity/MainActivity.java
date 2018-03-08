@@ -22,12 +22,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-       /*recyclerView = (RecyclerView) findViewById(R.id.recyclerViewPlanet);
-       recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-       adapter = new RecyclerAdapterPlanets(list);
-       recyclerView.setAdapter(adapter);*/
-
        buttonPeople = (Button) findViewById(R.id.button1);
         buttonPlanet = (Button) findViewById(R.id.button2);
 

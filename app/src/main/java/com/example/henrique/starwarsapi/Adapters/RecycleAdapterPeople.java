@@ -7,10 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.henrique.starwarsapi.Models.People;
-import com.example.henrique.starwarsapi.Models.Planet;
 import com.example.henrique.starwarsapi.R;
 import com.example.henrique.starwarsapi.ViewHolders.ViewHolderPeople;
-import com.example.henrique.starwarsapi.ViewHolders.ViewHolderPlanets;
 
 import java.util.List;
 

@@ -12,5 +12,5 @@ public class People {
     public String homeworld;
     public String skin_color;
 
-    public int type;
+    public int type = 0;
 }
