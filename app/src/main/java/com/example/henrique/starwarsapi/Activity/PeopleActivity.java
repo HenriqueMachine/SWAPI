@@ -48,7 +48,7 @@ public class PeopleActivity extends AppCompatActivity {
         people1 = new People();
         people1.type = 1;
         people.add(people1);
-        recyclerAdapterPeople = new RecycleAdapterPeople(people);
+        recyclerAdapterPeople = new RecycleAdapterPeople(people, PeopleActivity.this);
         recyclerView.setAdapter(recyclerAdapterPeople);
 
         methodPlanets(0);

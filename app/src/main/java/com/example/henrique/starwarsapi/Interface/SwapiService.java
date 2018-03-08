@@ -23,6 +23,9 @@ public interface SwapiService {
     @GET("planets/")
     Call<CallPlanet>listPlanets(@Query("page")int page);
 
+    @GET("/")
+    Call<CallPlanet> listPlanetsHome (@Query("seach")String page);
+
     @GET("people/")
     Call<CallPeople>listPeoples(@Query("page")int pagePeople);
 
