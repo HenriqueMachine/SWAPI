@@ -1,4 +1,4 @@
-package com.example.henrique.starwarsapi;
+package com.example.henrique.starwarsapi.Activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -6,13 +6,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.henrique.starwarsapi.R;
+
 public class MainActivity extends AppCompatActivity {
 
     private Button buttonPlanet;
     private Button buttonPeople;
 
     /*private RecyclerView recyclerView;
-    private RecyclerAdapter adapter;
+    private RecyclerAdapterPlanets adapter;
     private List<Planet> list = new ArrayList<>();*/
 
     @Override
@@ -23,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
        /*recyclerView = (RecyclerView) findViewById(R.id.recyclerViewPlanet);
        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-       adapter = new RecyclerAdapter(list);
+       adapter = new RecyclerAdapterPlanets(list);
        recyclerView.setAdapter(adapter);*/
 
        buttonPeople = (Button) findViewById(R.id.button1);

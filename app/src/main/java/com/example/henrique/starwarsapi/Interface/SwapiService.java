@@ -1,4 +1,4 @@
-package com.example.henrique.starwarsapi;
+package com.example.henrique.starwarsapi.Interface;
 
 import com.example.henrique.starwarsapi.Models.CallPeople;
 import com.example.henrique.starwarsapi.Models.CallPlanet;
@@ -23,7 +23,7 @@ public interface SwapiService {
     @GET("planets/")
     Call<CallPlanet>listPlanets(@Query("page")int page);
 
-    @GET("people/?page=1")
+    @GET("People/?page=1")
     Call<CallPeople> listPeoples();
 
     @GET("starships/?page=1")

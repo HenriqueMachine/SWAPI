@@ -1,15 +1,13 @@
-package com.example.henrique.starwarsapi;
+package com.example.henrique.starwarsapi.Activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
 
+import com.example.henrique.starwarsapi.Interface.SwapiService;
 import com.example.henrique.starwarsapi.Models.CallPeople;
-import com.example.henrique.starwarsapi.Models.people;
+import com.example.henrique.starwarsapi.Models.People;
+import com.example.henrique.starwarsapi.R;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -23,6 +21,8 @@ public class PeopleActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_people);
+
+
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(SwapiService.BASE_URL)
@@ -42,7 +42,7 @@ public class PeopleActivity extends AppCompatActivity {
                 else{
                     CallPeople list = response.body();
 
-                    for(people pp : list.results){
+                    for(People pp : list.results){
                         Log.i("E", String.format(" NAME: %s \n", pp.name));
                         Log.i("E", "***********");
                         String format = String.format(" NAME: %s \n", pp.name);

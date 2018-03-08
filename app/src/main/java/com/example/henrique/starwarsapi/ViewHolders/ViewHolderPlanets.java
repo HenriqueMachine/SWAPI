@@ -1,15 +1,17 @@
-package com.example.henrique.starwarsapi;
+package com.example.henrique.starwarsapi.ViewHolders;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.example.henrique.starwarsapi.R;
+
 /**
  * Created by henrique on 27/02/18.
  */
 
-public class ViewHolder extends RecyclerView.ViewHolder {
+public class ViewHolderPlanets extends RecyclerView.ViewHolder {
 
     public TextView planetName;
     public TextView population;
@@ -21,7 +23,7 @@ public class ViewHolder extends RecyclerView.ViewHolder {
     public TextView orbital_period;
     public TextView rotation_period;
 
-    public ViewHolder(View itemView, int viewType ) {
+    public ViewHolderPlanets(View itemView, int viewType ) {
         super(itemView);
         if (viewType == 1){
 

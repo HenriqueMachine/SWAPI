@@ -8,5 +8,5 @@ import java.util.List;
 
 public class CallPeople {
 
-    public List<people> results;
+    public List<People> results;
 }

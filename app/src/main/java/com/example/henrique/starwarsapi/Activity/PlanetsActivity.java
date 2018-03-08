@@ -1,4 +1,4 @@
-package com.example.henrique.starwarsapi;
+package com.example.henrique.starwarsapi.Activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,12 +7,14 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.example.henrique.starwarsapi.Adapters.RecyclerAdapterPlanets;
+import com.example.henrique.starwarsapi.Interface.SwapiService;
 import com.example.henrique.starwarsapi.Models.CallPlanet;
 import com.example.henrique.starwarsapi.Models.Planet;
+import com.example.henrique.starwarsapi.R;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.Delayed;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -30,7 +32,7 @@ public class PlanetsActivity extends AppCompatActivity {
     private int auxVisible;
     private boolean loading = true;
     private int previousTotal = 0;
-    private RecyclerAdapter recyclerAdapter;
+    private RecyclerAdapterPlanets recyclerAdapterPlanets;
     private Planet fake;
 
     @Override
@@ -44,8 +46,8 @@ public class PlanetsActivity extends AppCompatActivity {
          fake = new Planet();
         fake.type = 1;
         planetList.add(fake);
-        recyclerAdapter = new RecyclerAdapter(planetList);
-        recyclerView.setAdapter(recyclerAdapter);
+        recyclerAdapterPlanets = new RecyclerAdapterPlanets(planetList);
+        recyclerView.setAdapter(recyclerAdapterPlanets);
 
         methodPlanets(0);
 
@@ -102,7 +104,7 @@ public class PlanetsActivity extends AppCompatActivity {
                         methodPlanets(1);
                         CallPlanet list = response.body();
                         planetList = list.results;
-                        recyclerView.setAdapter(recyclerAdapter);
+                        recyclerView.setAdapter(recyclerAdapterPlanets);
                     } else {
                         if (planetList != null) {
                             CallPlanet list = response.body();
@@ -110,7 +112,7 @@ public class PlanetsActivity extends AppCompatActivity {
                                 planetList.add(Planet);
                             }
                             Log.i("E", "<- Fim do for -> " + planetList.size());
-                            recyclerAdapter.notifyDataSetChanged();
+                            recyclerAdapterPlanets.notifyDataSetChanged();
                         }
                     }
                 }

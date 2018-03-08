@@ -1,13 +1,14 @@
-package com.example.henrique.starwarsapi;
+package com.example.henrique.starwarsapi.Adapters;
 
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ProgressBar;
 
 import com.example.henrique.starwarsapi.Models.Planet;
+import com.example.henrique.starwarsapi.R;
+import com.example.henrique.starwarsapi.ViewHolders.ViewHolderPlanets;
 
 import java.util.List;
 
@@ -15,23 +16,23 @@ import java.util.List;
  * Created by henrique on 27/02/18.
  */
 
-public class RecyclerAdapter extends RecyclerView.Adapter<ViewHolder> {
+public class RecyclerAdapterPlanets extends RecyclerView.Adapter<ViewHolderPlanets> {
 
     private List<Planet> list;
 
-    public RecyclerAdapter(List<Planet> Planets) {
+    public RecyclerAdapterPlanets(List<Planet> Planets) {
         this.list = Planets;
     }
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolderPlanets onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = null;
         if (viewType == 1) {
             view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_load, parent, false);
         } else if (viewType == 0) {
-            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item, parent, false);
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_planet, parent, false);
         }
-        return new ViewHolder(view, viewType);
+        return new ViewHolderPlanets(view, viewType);
     }
 
     @Override
@@ -40,7 +41,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<ViewHolder> {
         return planet.type;
     }
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolderPlanets holder, int position) {
 
         Planet planet = list.get(position);
 
