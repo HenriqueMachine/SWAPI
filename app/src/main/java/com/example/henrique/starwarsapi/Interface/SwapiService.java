@@ -9,6 +9,7 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
+import retrofit2.http.QueryName;
 
 /**
  * Created by henrique on 23/02/18.
@@ -23,8 +24,8 @@ public interface SwapiService {
     @GET("planets/")
     Call<CallPlanet>listPlanets(@Query("page")int page);
 
-    @GET("/")
-    Call<CallPlanet> listPlanetsHome (@Query("seach")String page);
+    @GET("planets/")
+    Call<CallPlanet> listPlanetsHome (@Query("search") int pageTest);
 
     @GET("people/")
     Call<CallPeople>listPeoples(@Query("page")int pagePeople);

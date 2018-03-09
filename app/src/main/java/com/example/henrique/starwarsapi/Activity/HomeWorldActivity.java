@@ -7,7 +7,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
-import com.example.henrique.starwarsapi.Adapters.RecycleAdapterPeople;
 import com.example.henrique.starwarsapi.Adapters.RecyclerAdapterPlanets;
 import com.example.henrique.starwarsapi.Interface.SwapiService;
 import com.example.henrique.starwarsapi.Models.CallPlanet;
@@ -28,51 +27,64 @@ public class HomeWorldActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private List<Planet> planetList = new ArrayList<>();
     private RecyclerAdapterPlanets recyclerAdapterPlanets;
-    private Planet type;
-
+    private Planet fake;
+    private String StringURL;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_world);
 
-        Intent it = getIntent();
-        final String URL = it.getStringExtra("Clickou");
-
-        type = new Planet();
-        type.type=0;
-        planetList.add(type);
-
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView = (RecyclerView) findViewById(R.id.recyclerViewPlanetHomeW);
         recyclerView.setLayoutManager(linearLayoutManager);
+        fake = new Planet();
+        fake.type = 1;
+        planetList.add(fake);
         recyclerAdapterPlanets = new RecyclerAdapterPlanets(planetList);
         recyclerView.setAdapter(recyclerAdapterPlanets);
 
+        Intent it = getIntent();
+        StringURL = it.getStringExtra("Clickou" );
+
+        methodPlanets(1);
+    }
+    private void methodPlanets(final int page) {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(URL)
+                .baseUrl(StringURL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        SwapiService service = retrofit.create(SwapiService.class);
-        Call<CallPlanet> requestPlanetButton = service.listPlanetsHome(URL);
-        requestPlanetButton.enqueue(new Callback<CallPlanet>() {
+        //polymorphism
+        final SwapiService service = retrofit.create(SwapiService.class);
+        final Call<CallPlanet> requestPlanet = service.listPlanetsHome(1);
+        requestPlanet.enqueue(new Callback<CallPlanet>() {
+
             @Override
             public void onResponse(Call<CallPlanet> call, Response<CallPlanet> response) {
-                CallPlanet list = response.body();
-                planetList = list.results;
-                planetList.add(type);
-                recyclerView.setAdapter(recyclerAdapterPlanets);
-                Log.i("E", "Chegou");
-            }
+                if (response.isSuccessful()) {
+                    planetList.remove(fake);
 
+                    Log.i("E", "Callback Success... CODE: #" + response.code() + ".");
+                    if (page == 1) {
+                        methodPlanets(2);
+                        CallPlanet list = response.body();
+                        planetList = list.results;
+                        recyclerView.setAdapter(recyclerAdapterPlanets);
+                    } else {
+                        if (planetList != null) {
+                            CallPlanet list = response.body();
+                            for (Planet Planet : list.results) {
+                                planetList.add(Planet);
+                            }
+                        }
+                    }
+                }
+            }
             @Override
             public void onFailure(Call<CallPlanet> call, Throwable t) {
-
-                Log.i("E", "Failure");
-
+                Log.e("EE", "Error" + t.getMessage());
             }
         });
-
     }
 }

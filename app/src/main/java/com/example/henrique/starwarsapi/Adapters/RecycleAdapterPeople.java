@@ -67,7 +67,7 @@ public class RecycleAdapterPeople extends RecyclerView.Adapter<ViewHolderPeople>
             holder.btnHome_World.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Log.i("E", "Clickou" + position);
+                    Log.i("E", "Clickou" + position +" >>>" + people.homeworld);
                     Intent intent = new Intent(mContext, HomeWorldActivity.class);
                     intent.putExtra("Clickou", people.homeworld );
                     mContext.startActivity(intent);
