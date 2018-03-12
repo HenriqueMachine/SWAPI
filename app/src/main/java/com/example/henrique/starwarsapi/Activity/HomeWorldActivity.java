@@ -76,8 +76,10 @@ public class HomeWorldActivity extends AppCompatActivity {
                     Log.i("E", "Callback Success... CODE: #" + response.code() + ".");
                 }
                 if (page >= 1){
-                    CallPlanet list = response.body();
-                    planetList = list.results;
+                    //chegou
+                    Log.i("E","Teste if page >=1");
+                    CallPlanet callback = response.body();
+                    planetList = callback.results;
                     recyclerView.setAdapter(recyclerAdapterPlanets);
                 }
             }
