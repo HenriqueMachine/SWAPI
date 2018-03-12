@@ -58,16 +58,16 @@ public class HomeWorldActivity extends AppCompatActivity {
 
         methodPlanets(savePosInt);
     }
-    private void methodPlanets(final int planet) {
+    private void methodPlanets(final int page) {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-        //savePosInt = planet;
+        savePosInt = page;
 
         //polymorphism
         final SwapiService service = retrofit.create(SwapiService.class);
-        final Call<CallPlanet> requestPlanet = service.listPlanetsHome(planet);
+        final Call<CallPlanet> requestPlanet = service.listPlanetsHome(savePosInt);
         requestPlanet.enqueue(new Callback<CallPlanet>() {
 
             @Override
@@ -75,20 +75,10 @@ public class HomeWorldActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     Log.i("E", "Callback Success... CODE: #" + response.code() + ".");
                 }
-                if (planet >= 0){
-                    methodPlanets(1);
+                if (page >= 1){
                     CallPlanet list = response.body();
                     planetList = list.results;
                     recyclerView.setAdapter(recyclerAdapterPlanets);
-                }else {
-                    if (planetList != null) {
-                        CallPlanet list = response.body();
-                        for (Planet Planet : list.results) {
-                            planetList.add(Planet);
-                        }
-                        Log.i("E", "<- Fim do for -> " + planetList.size());
-                        recyclerAdapterPlanets.notifyDataSetChanged();
-                    }
                 }
             }
             @Override
