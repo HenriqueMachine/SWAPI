@@ -22,13 +22,18 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import static com.example.henrique.starwarsapi.Interface.SwapiService.BASE_URL;
+
 public class HomeWorldActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private List<Planet> planetList = new ArrayList<>();
     private RecyclerAdapterPlanets recyclerAdapterPlanets;
     private Planet fake;
-    private String StringURL;
+    private String stringURL;
+    private String[] cutURL;
+    private String savePos;
+    private int savePosInt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,39 +50,44 @@ public class HomeWorldActivity extends AppCompatActivity {
         recyclerView.setAdapter(recyclerAdapterPlanets);
 
         Intent it = getIntent();
-        StringURL = it.getStringExtra("Clickou" );
+        stringURL = it.getStringExtra("Clickou" );
+        cutURL=stringURL.split("/");
+        savePos = cutURL[5];
+        Log.i("E", "StringPos >>> " + savePos );
+        savePosInt = Integer.valueOf(savePos);
 
-        methodPlanets(1);
+        methodPlanets(savePosInt);
     }
-    private void methodPlanets(final int page) {
+    private void methodPlanets(final int planet) {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(StringURL)
+                .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
+        //savePosInt = planet;
 
         //polymorphism
         final SwapiService service = retrofit.create(SwapiService.class);
-        final Call<CallPlanet> requestPlanet = service.listPlanetsHome(1);
+        final Call<CallPlanet> requestPlanet = service.listPlanetsHome(planet);
         requestPlanet.enqueue(new Callback<CallPlanet>() {
 
             @Override
             public void onResponse(Call<CallPlanet> call, Response<CallPlanet> response) {
                 if (response.isSuccessful()) {
-                    planetList.remove(fake);
-
                     Log.i("E", "Callback Success... CODE: #" + response.code() + ".");
-                    if (page == 1) {
-                        methodPlanets(2);
+                }
+                if (planet >= 0){
+                    methodPlanets(1);
+                    CallPlanet list = response.body();
+                    planetList = list.results;
+                    recyclerView.setAdapter(recyclerAdapterPlanets);
+                }else {
+                    if (planetList != null) {
                         CallPlanet list = response.body();
-                        planetList = list.results;
-                        recyclerView.setAdapter(recyclerAdapterPlanets);
-                    } else {
-                        if (planetList != null) {
-                            CallPlanet list = response.body();
-                            for (Planet Planet : list.results) {
-                                planetList.add(Planet);
-                            }
+                        for (Planet Planet : list.results) {
+                            planetList.add(Planet);
                         }
+                        Log.i("E", "<- Fim do for -> " + planetList.size());
+                        recyclerAdapterPlanets.notifyDataSetChanged();
                     }
                 }
             }

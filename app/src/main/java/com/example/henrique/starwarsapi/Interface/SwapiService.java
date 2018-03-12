@@ -24,8 +24,8 @@ public interface SwapiService {
     @GET("planets/")
     Call<CallPlanet>listPlanets(@Query("page")int page);
 
-    @GET("planets/")
-    Call<CallPlanet> listPlanetsHome (@Query("search") int pageTest);
+    @GET("planets/{numberPlanet}")
+    Call<CallPlanet> listPlanetsHome (@Path("numberPlanet") int planetNumber);
 
     @GET("people/")
     Call<CallPeople>listPeoples(@Query("page")int pagePeople);
