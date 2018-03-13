@@ -5,6 +5,8 @@ import com.example.henrique.starwarsapi.Models.CallPlanet;
 import com.example.henrique.starwarsapi.Models.CallSpecies;
 import com.example.henrique.starwarsapi.Models.CallStarships;
 import com.example.henrique.starwarsapi.Models.CallVehicles;
+import com.example.henrique.starwarsapi.Models.Planet;
+
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
@@ -24,8 +26,8 @@ public interface SwapiService {
     @GET("planets/")
     Call<CallPlanet>listPlanets(@Query("page")int page);
 
-    @GET("planets/{numberPlanet}")
-    Call<CallPlanet> listPlanetsHome (@Path("numberPlanet") int planetNumber);
+    @GET("planets/")
+    Call<Planet> listPlanetsHome (@Query("page") int planetNumber);
 
     @GET("people/")
     Call<CallPeople>listPeoples(@Query("page")int pagePeople);
