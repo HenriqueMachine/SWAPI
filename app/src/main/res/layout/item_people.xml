@@ -63,7 +63,15 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"/>
             <TextView
                 android:textSize="16dp"
-                android:id="@+id/homeWorld"
+                android:id="@+id/hairColor"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Description"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"/>
+            <TextView
+                android:textSize="16dp"
+                android:id="@+id/eyeColor"
                 android:layout_marginTop="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

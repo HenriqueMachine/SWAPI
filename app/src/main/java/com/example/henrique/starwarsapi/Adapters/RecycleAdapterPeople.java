@@ -57,12 +57,15 @@ public class RecycleAdapterPeople extends RecyclerView.Adapter<ViewHolderPeople>
             String gender = String.format("Gender: %s.", people.gender);
             String birthYear = String.format("Birth Year: %s.", people.birth_year);
             String skinColor = String.format("Skin Color: %s.", people.skin_color);
+            String eyeColor = String.format("Eye Color: %s.", people.eye_color);
+            String hairColor = String.format("Hair Color: %s.", people.hair_color);
 
             holder.name.setText(people.name);
             holder.gender.setText(gender);
             holder.birth_year.setText(birthYear);
             holder.skin_color.setText(skinColor);
-            holder.homeworld.setText(people.homeworld);
+            holder.eye_color.setText(eyeColor);
+            holder.hair_color.setText(hairColor);
 
             holder.btnHome_World.setOnClickListener(new View.OnClickListener() {
                 @Override

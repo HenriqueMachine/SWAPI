@@ -1,5 +1,7 @@
 package com.example.henrique.starwarsapi.Models;
 
+import android.view.View;
+
 /**
  * Created by henrique on 23/02/18.
  */

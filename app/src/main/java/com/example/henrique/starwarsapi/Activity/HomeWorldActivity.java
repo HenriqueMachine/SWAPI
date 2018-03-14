@@ -46,11 +46,11 @@ public class HomeWorldActivity extends AppCompatActivity {
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView = (RecyclerView) findViewById(R.id.recyclerViewPlanetHomeW);
         recyclerView.setLayoutManager(linearLayoutManager);
-        //fake = new Planet();
-        //fake.type = 1;
-        //planetList.add(fake);
-       // recyclerAdapterPlanets = new RecyclerAdapterPlanets(planetList);
-        //recyclerView.setAdapter(recyclerAdapterPlanets);
+        fake = new Planet();
+        fake.type = 1;
+        planetList.add(fake);
+        recyclerAdapterPlanets = new RecyclerAdapterPlanets(planetList);
+        recyclerView.setAdapter(recyclerAdapterPlanets);
 
         Intent it = getIntent();
         stringURL = it.getStringExtra("Clickou" );

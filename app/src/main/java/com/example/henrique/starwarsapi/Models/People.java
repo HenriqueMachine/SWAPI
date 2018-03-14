@@ -7,6 +7,8 @@ package com.example.henrique.starwarsapi.Models;
 public class People {
 
     public String name;
+    public String eye_color;
+    public String hair_color;
     public String gender;
     public String birth_year;
     public String homeworld;

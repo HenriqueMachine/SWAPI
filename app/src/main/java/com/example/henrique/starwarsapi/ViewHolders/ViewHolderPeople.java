@@ -16,8 +16,9 @@ public class ViewHolderPeople extends RecyclerView.ViewHolder {
     public TextView name;
     public TextView gender;
     public TextView birth_year;
-    public TextView homeworld;
     public TextView skin_color;
+    public TextView hair_color;
+    public TextView eye_color;
     public Button btnHome_World;
 
     public ViewHolderPeople(View itemView, int viewType) {
@@ -32,7 +33,8 @@ public class ViewHolderPeople extends RecyclerView.ViewHolder {
             this.gender = itemView.findViewById(R.id.gender);
             this.birth_year = itemView.findViewById(R.id.birthYear);
             this.skin_color = itemView.findViewById(R.id.skinColor);
-            this.homeworld = itemView.findViewById(R.id.homeWorld);
+            this.hair_color = itemView.findViewById(R.id.hairColor);
+            this.eye_color = itemView.findViewById(R.id.eyeColor);
         }
     }
 }
