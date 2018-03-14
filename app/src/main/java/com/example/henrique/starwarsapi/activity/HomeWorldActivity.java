@@ -1,4 +1,4 @@
-package com.example.henrique.starwarsapi.Activity;
+package com.example.henrique.starwarsapi.activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -6,13 +6,10 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
 
-import com.example.henrique.starwarsapi.Adapters.RecyclerAdapterPlanets;
-import com.example.henrique.starwarsapi.Interface.SwapiService;
-import com.example.henrique.starwarsapi.Models.CallPlanet;
-import com.example.henrique.starwarsapi.Models.Planet;
+import com.example.henrique.starwarsapi.adapters.RecyclerAdapterPlanets;
+import com.example.henrique.starwarsapi.interfaces.SwapiService;
+import com.example.henrique.starwarsapi.models.Planet;
 import com.example.henrique.starwarsapi.R;
 
 import java.util.ArrayList;
@@ -24,7 +21,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import static com.example.henrique.starwarsapi.Interface.SwapiService.BASE_URL;
+import static com.example.henrique.starwarsapi.interfaces.SwapiService.BASE_URL;
 
 public class HomeWorldActivity extends AppCompatActivity {
 
@@ -32,7 +29,6 @@ public class HomeWorldActivity extends AppCompatActivity {
     private List<Planet> planetList = new ArrayList<>();
     private RecyclerAdapterPlanets recyclerAdapterPlanets;
     private Planet fake;
-    private Planet homeWorld;
     private String stringURL;
     private String[] cutURL;
     private String savePos;
@@ -49,7 +45,7 @@ public class HomeWorldActivity extends AppCompatActivity {
         fake = new Planet();
         fake.type = 1;
         planetList.add(fake);
-        recyclerAdapterPlanets = new RecyclerAdapterPlanets(planetList);
+        recyclerAdapterPlanets = new RecyclerAdapterPlanets(planetList, HomeWorldActivity.this);
         recyclerView.setAdapter(recyclerAdapterPlanets);
 
         Intent it = getIntent();
@@ -80,7 +76,7 @@ public class HomeWorldActivity extends AppCompatActivity {
                     Planet planet1 = response.body();
                     planet1.type = 0;
                     planetList.add(planet1);
-                    recyclerAdapterPlanets = new RecyclerAdapterPlanets(planetList);
+                    recyclerAdapterPlanets = new RecyclerAdapterPlanets(planetList, HomeWorldActivity.this);
                     recyclerView.setAdapter(recyclerAdapterPlanets);
                 }
             }

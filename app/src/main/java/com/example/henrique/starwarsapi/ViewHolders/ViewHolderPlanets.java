@@ -2,6 +2,7 @@ package com.example.henrique.starwarsapi.ViewHolders;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.henrique.starwarsapi.R;
@@ -21,6 +22,7 @@ public class ViewHolderPlanets extends RecyclerView.ViewHolder {
     public TextView terrain;
     public TextView orbital_period;
     public TextView rotation_period;
+    public Button btn_residents;
 
     public ViewHolderPlanets(View itemView, int viewType ) {
         super(itemView);
@@ -36,6 +38,7 @@ public class ViewHolderPlanets extends RecyclerView.ViewHolder {
             this.diameter = itemView.findViewById(R.id.diameterPlanet);
             this.gravity = itemView.findViewById(R.id.gravityPlanet);
             this.terrain = itemView.findViewById(R.id.terrainPlanet);
+            this.btn_residents = itemView.findViewById(R.id.btnResident);
         }
     }
 }

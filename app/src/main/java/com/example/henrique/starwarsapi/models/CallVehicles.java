@@ -1,4 +1,4 @@
-package com.example.henrique.starwarsapi.Models;
+package com.example.henrique.starwarsapi.models;
 
 import java.util.List;
 

@@ -1,17 +1,16 @@
-package com.example.henrique.starwarsapi.Interface;
+package com.example.henrique.starwarsapi.interfaces;
 
-import com.example.henrique.starwarsapi.Models.CallPeople;
-import com.example.henrique.starwarsapi.Models.CallPlanet;
-import com.example.henrique.starwarsapi.Models.CallSpecies;
-import com.example.henrique.starwarsapi.Models.CallStarships;
-import com.example.henrique.starwarsapi.Models.CallVehicles;
-import com.example.henrique.starwarsapi.Models.Planet;
+import com.example.henrique.starwarsapi.models.CallPeople;
+import com.example.henrique.starwarsapi.models.CallPlanet;
+import com.example.henrique.starwarsapi.models.CallSpecies;
+import com.example.henrique.starwarsapi.models.CallStarships;
+import com.example.henrique.starwarsapi.models.CallVehicles;
+import com.example.henrique.starwarsapi.models.Planet;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
-import retrofit2.http.QueryName;
 
 /**
  * Created by henrique on 23/02/18.

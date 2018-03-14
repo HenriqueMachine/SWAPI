@@ -1,4 +1,4 @@
-package com.example.henrique.starwarsapi.Models;
+package com.example.henrique.starwarsapi.models;
 
 /**
  * Created by henrique on 26/02/18.

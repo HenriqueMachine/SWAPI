@@ -1,4 +1,4 @@
-package com.example.henrique.starwarsapi.Activity;
+package com.example.henrique.starwarsapi.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,10 +7,10 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.example.henrique.starwarsapi.Adapters.RecyclerAdapterPlanets;
-import com.example.henrique.starwarsapi.Interface.SwapiService;
-import com.example.henrique.starwarsapi.Models.CallPlanet;
-import com.example.henrique.starwarsapi.Models.Planet;
+import com.example.henrique.starwarsapi.adapters.RecyclerAdapterPlanets;
+import com.example.henrique.starwarsapi.interfaces.SwapiService;
+import com.example.henrique.starwarsapi.models.CallPlanet;
+import com.example.henrique.starwarsapi.models.Planet;
 import com.example.henrique.starwarsapi.R;
 
 import java.util.ArrayList;
@@ -46,7 +46,7 @@ public class PlanetsActivity extends AppCompatActivity {
         fake = new Planet();
         fake.type = 1;
         planetList.add(fake);
-        recyclerAdapterPlanets = new RecyclerAdapterPlanets(planetList);
+        recyclerAdapterPlanets = new RecyclerAdapterPlanets(planetList, PlanetsActivity.this);
         recyclerView.setAdapter(recyclerAdapterPlanets);
 
         methodPlanets(0);

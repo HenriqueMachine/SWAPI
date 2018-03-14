@@ -1,6 +1,6 @@
-package com.example.henrique.starwarsapi.Models;
+package com.example.henrique.starwarsapi.models;
 
-import android.view.View;
+import java.util.ArrayList;
 
 /**
  * Created by henrique on 23/02/18.
@@ -17,6 +17,7 @@ public class Planet {
     public String diameter;
     public String terrain;
     public String surface_water;
+    public ArrayList residents = new ArrayList();
 
     public int type = 0;
 

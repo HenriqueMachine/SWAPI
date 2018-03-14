@@ -1,4 +1,4 @@
-package com.example.henrique.starwarsapi.Adapters;
+package com.example.henrique.starwarsapi.adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -7,8 +7,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.example.henrique.starwarsapi.Activity.HomeWorldActivity;
-import com.example.henrique.starwarsapi.Models.People;
+import com.example.henrique.starwarsapi.activity.HomeWorldActivity;
+import com.example.henrique.starwarsapi.models.People;
 import com.example.henrique.starwarsapi.R;
 import com.example.henrique.starwarsapi.ViewHolders.ViewHolderPeople;
 

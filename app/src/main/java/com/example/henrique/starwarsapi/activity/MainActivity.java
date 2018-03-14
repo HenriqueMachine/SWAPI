@@ -1,4 +1,4 @@
-package com.example.henrique.starwarsapi.Activity;
+package com.example.henrique.starwarsapi.activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;

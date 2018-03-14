@@ -1,15 +1,21 @@
-package com.example.henrique.starwarsapi.Adapters;
+package com.example.henrique.starwarsapi.adapters;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
-import com.example.henrique.starwarsapi.Models.Planet;
+import com.example.henrique.starwarsapi.utils.Const;
+import com.example.henrique.starwarsapi.activity.ResidentsActivity;
+import com.example.henrique.starwarsapi.models.Planet;
 import com.example.henrique.starwarsapi.R;
 import com.example.henrique.starwarsapi.ViewHolders.ViewHolderPlanets;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,9 +25,12 @@ import java.util.List;
 public class RecyclerAdapterPlanets extends RecyclerView.Adapter<ViewHolderPlanets> {
 
     private List<Planet> list;
+    private Context mContextPlanet;
+    private ArrayList residents = new ArrayList();
 
-    public RecyclerAdapterPlanets(List<Planet> Planets) {
+    public RecyclerAdapterPlanets(List<Planet> Planets, Context context) {
         this.list = Planets;
+        this.mContextPlanet = context;
     }
 
     @Override
@@ -41,9 +50,9 @@ public class RecyclerAdapterPlanets extends RecyclerView.Adapter<ViewHolderPlane
         return planet.type;
     }
     @Override
-    public void onBindViewHolder(ViewHolderPlanets holder, int position) {
+    public void onBindViewHolder(ViewHolderPlanets holder, final int position) {
 
-        Planet planet = list.get(position);
+        final Planet planet = list.get(position);
 
         if(planet.type == 1){
             Log.i("E", "Type1");
@@ -69,6 +78,22 @@ public class RecyclerAdapterPlanets extends RecyclerView.Adapter<ViewHolderPlane
             holder.climate.setText(climate);
             holder.diameter.setText(diameter);
             holder.surfaceWater.setText(surfaceWater);
+
+            holder.btn_residents.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Log.i("E", "Clickou" + position + planet.residents);
+
+                        if (residents == null){
+                               Toast.makeText(mContextPlanet, "Shhhhh... nobody lives here :( ", Toast.LENGTH_SHORT).show();
+                        }
+                    else if (residents != null){
+                        Intent intent = new Intent(mContextPlanet, ResidentsActivity.class);
+                        intent.putStringArrayListExtra("SHHHHSH",planet.residents);
+                           mContextPlanet.startActivity(intent);
+                    }
+                }
+            });
         }
     }
     @Override
