@@ -89,7 +89,7 @@ public class RecyclerAdapterPlanets extends RecyclerView.Adapter<ViewHolderPlane
                         }
                     else if (residents != null){
                         Intent intent = new Intent(mContextPlanet, ResidentsActivity.class);
-                        intent.putStringArrayListExtra("SHHHHSH",planet.residents);
+                        intent.putStringArrayListExtra(Const.Params.RESIDENTS,planet.residents);
                            mContextPlanet.startActivity(intent);
                     }
                 }

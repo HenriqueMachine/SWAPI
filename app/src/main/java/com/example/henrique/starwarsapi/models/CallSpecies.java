@@ -8,6 +8,6 @@ import java.util.List;
 
 public class CallSpecies {
 
-    List<species> results;
+    List<Species> results;
 
 }

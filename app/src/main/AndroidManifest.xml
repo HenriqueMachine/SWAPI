@@ -21,7 +21,8 @@
         <activity android:name=".activity.PeopleActivity" />
         <activity android:name=".activity.PlanetsActivity" />
         <activity android:name=".activity.HomeWorldActivity" />
-        <activity android:name=".activity.ResidentsActivity"></activity>
+        <activity android:name=".activity.ResidentsActivity" />
+        <activity android:name=".activity.SpeciesActivity"></activity>
     </application>
 
 </manifest>

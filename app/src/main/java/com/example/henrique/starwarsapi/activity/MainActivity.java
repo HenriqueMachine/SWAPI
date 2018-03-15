@@ -12,10 +12,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button buttonPlanet;
     private Button buttonPeople;
-
-    /*private RecyclerView recyclerView;
-    private RecyclerAdapterPlanets adapter;
-    private List<Planet> list = new ArrayList<>();*/
+    private Button buttonSpecies;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +20,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
        buttonPeople = (Button) findViewById(R.id.button1);
-        buttonPlanet = (Button) findViewById(R.id.button2);
+       buttonPlanet = (Button) findViewById(R.id.button2);
+       buttonSpecies = (Button) findViewById(R.id.button3);
 
         buttonPeople.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,7 +43,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        buttonSpecies.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                Intent specie = new Intent(MainActivity.this, SpeciesActivity.class);
+                startActivity(specie);
+
+            }
+        });
 
     }
 

@@ -17,7 +17,7 @@ public class Planet {
     public String diameter;
     public String terrain;
     public String surface_water;
-    public ArrayList residents = new ArrayList();
+    public ArrayList residents;
 
     public int type = 0;
 
