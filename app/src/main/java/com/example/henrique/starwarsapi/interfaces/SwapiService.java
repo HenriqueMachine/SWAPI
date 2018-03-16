@@ -37,7 +37,7 @@ public interface SwapiService {
     @GET ("vehicles/?page=1")
     Call<CallVehicles> listVehicles();
 
-    @GET ("Species/?page=1")
-    Call<CallSpecies> listSpecies();
+    @GET ("species/")
+    Call<CallSpecies> listSpecies(@Query("page")int pageSpecie);
 
 }

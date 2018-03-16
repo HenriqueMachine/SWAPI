@@ -6,10 +6,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.henrique.starwarsapi.R;
 import com.example.henrique.starwarsapi.ViewHolders.ViewHolderSpecies;
-import com.example.henrique.starwarsapi.models.People;
 import com.example.henrique.starwarsapi.models.Species;
 
 import java.util.List;
@@ -45,7 +45,7 @@ public class RecycleAdapterSpecies extends RecyclerView.Adapter<ViewHolderSpecie
     }
 
     @Override
-    public void onBindViewHolder(ViewHolderSpecies holder, final int position) {
+    public void onBindViewHolder(final ViewHolderSpecies holder, final int position) {
 
         final Species species = speciesList.get(position);
 
@@ -57,14 +57,33 @@ public class RecycleAdapterSpecies extends RecyclerView.Adapter<ViewHolderSpecie
             String language = String.format("Language: %s.", species.language);
             String classification = String.format("Classification: %s.", species.classification);
             String skin_color = String.format("Skin Color: %s.", species.skin_colors);
-            String eye_colors = String.format("Language: %s.", species.language);
-            String homeWorld = String.format("Language: %s.", species.language);
-        }
+            String eye_colors = String.format("Eye Color: %s.", species.eye_colors);
+            String homeWorld = String.format("HomeWorld: %s.", species.homeworld);
+            String designation = String.format("Designation: %s.", species.designation);
+            String average_lifespan = String.format("Average Lifespan: %s.", species.average_lifespan);
 
+            holder.name.setText(species.name);
+            holder.language.setText(language);
+            holder.classification.setText(classification);
+            holder.eye_colors.setText(eye_colors);
+            holder.skin_colors.setText(skin_color);
+            holder.homeWorldSpecies.setText(homeWorld);
+            holder.designationSpecies.setText(designation);
+            holder.average_lifespan.setText(average_lifespan);
+
+            holder.btn_Species.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(mContext, "Clickou !!!", Toast.LENGTH_SHORT).show();
+                }
+            });
+
+
+        }
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return speciesList.size();
     }
 }

@@ -13,13 +13,15 @@ import com.example.henrique.starwarsapi.R;
 
 public class ViewHolderSpecies extends ViewHolder{
 
-    private TextView name;
-    private TextView language;
-    private TextView classification;
-    private TextView skin_colors;
-    private TextView eye_colors;
-    private TextView homeWorldSpecies;
-    private Button btn_Species;
+    public TextView name;
+    public TextView language;
+    public TextView classification;
+    public TextView skin_colors;
+    public TextView eye_colors;
+    public TextView homeWorldSpecies;
+    public TextView designationSpecies;
+    public TextView average_lifespan;
+    public Button btn_Species;
 
     public ViewHolderSpecies(View itemView, int viewType){
         super(itemView);
@@ -35,6 +37,8 @@ public class ViewHolderSpecies extends ViewHolder{
             this.skin_colors = itemView.findViewById(R.id.skinColorSpecies);
             this.eye_colors = itemView.findViewById(R.id.eyeColorSpecies);
             this.homeWorldSpecies = itemView.findViewById(R.id.homeWorldSpecies);
+            this.designationSpecies = itemView.findViewById(R.id.designationSpecies);
+            this.average_lifespan = itemView.findViewById(R.id.averagelifespanSpecies);
 
         }
 

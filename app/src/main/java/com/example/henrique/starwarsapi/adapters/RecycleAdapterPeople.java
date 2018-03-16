@@ -11,6 +11,7 @@ import com.example.henrique.starwarsapi.activity.HomeWorldActivity;
 import com.example.henrique.starwarsapi.models.People;
 import com.example.henrique.starwarsapi.R;
 import com.example.henrique.starwarsapi.ViewHolders.ViewHolderPeople;
+import com.example.henrique.starwarsapi.models.Species;
 
 import java.util.List;
 

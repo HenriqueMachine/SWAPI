@@ -25,7 +25,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class PeopleActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    private List<People> people = new ArrayList<>();
+    private List<People>
+            people = new ArrayList<>();
     private int pageCurrent;
     private int auxCount;
     private int auxTotal;

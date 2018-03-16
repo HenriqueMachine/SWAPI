@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.henrique.starwarsapi.utils.Const;
-import com.example.henrique.starwarsapi.activity.ResidentsActivity;
 import com.example.henrique.starwarsapi.models.Planet;
 import com.example.henrique.starwarsapi.R;
 import com.example.henrique.starwarsapi.ViewHolders.ViewHolderPlanets;
@@ -84,14 +83,9 @@ public class RecyclerAdapterPlanets extends RecyclerView.Adapter<ViewHolderPlane
                 public void onClick(View v) {
                     Log.i("E", "Clickou" + position + planet.residents);
 
-                        if (residents == null){
+                        if (residents != null){
                                Toast.makeText(mContextPlanet, "Shhhhh... nobody lives here :( ", Toast.LENGTH_SHORT).show();
                         }
-                    else if (residents != null){
-                        Intent intent = new Intent(mContextPlanet, ResidentsActivity.class);
-                        intent.putStringArrayListExtra(Const.Params.RESIDENTS,planet.residents);
-                           mContextPlanet.startActivity(intent);
-                    }
                 }
             });
         }

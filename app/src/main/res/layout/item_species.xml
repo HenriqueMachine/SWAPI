@@ -72,6 +72,22 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"/>
             <TextView
                 android:textSize="16dp"
+                android:id="@+id/designationSpecies"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Description"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"/>
+            <TextView
+                android:textSize="16dp"
+                android:id="@+id/averagelifespanSpecies"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Description"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"/>
+            <TextView
+                android:textSize="16dp"
                 android:id="@+id/homeWorldSpecies"
                 android:layout_marginTop="8dp"
                 android:layout_width="match_parent"
