@@ -83,7 +83,7 @@ public class RecyclerAdapterPlanets extends RecyclerView.Adapter<ViewHolderPlane
                 public void onClick(View v) {
                     Log.i("E", "Clickou" + position + planet.residents);
 
-                        if (residents != null){
+                        if (residents == null){
                                Toast.makeText(mContextPlanet, "Shhhhh... nobody lives here :( ", Toast.LENGTH_SHORT).show();
                         }
                 }
