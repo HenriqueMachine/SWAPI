@@ -79,6 +79,15 @@
 
        android:background="@color/colorAccent"
        android:text="PLANETS" />
+
+   <Button
+       android:id="@+id/button4"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginTop="16dp"
+
+       android:background="@color/colorAccent"
+       android:text="STARSHIPS" />
   </LinearLayout>
 
   <android.support.design.widget.BottomNavigationView

@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     private Button buttonPlanet;
     private Button buttonPeople;
     private Button buttonSpecies;
+    private Button buttonStarS;
     private BottomNavigationView navigationView;
 
     @Override
@@ -43,12 +44,17 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         buttonPeople = (Button) findViewById(R.id.button1);
         buttonPlanet = (Button) findViewById(R.id.button2);
         buttonSpecies = (Button) findViewById(R.id.button3);
+        buttonStarS = (Button) findViewById(R.id.button4);
         navigationView = (BottomNavigationView) findViewById(R.id.bottomNav);
         navigationView.setOnNavigationItemSelectedListener(this);
 
-        buttonPeople = (Button) findViewById(R.id.button1);
-        buttonPlanet = (Button) findViewById(R.id.button2);
-        buttonSpecies = (Button) findViewById(R.id.button3);
+        buttonStarS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, StarshipsActivity.class);
+                startActivity(intent);
+            }
+        });
 
         buttonPeople.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -216,7 +222,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 break;
             }
         }
-
         return true;
     }
 }

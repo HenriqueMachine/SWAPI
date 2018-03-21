@@ -20,7 +20,7 @@ import retrofit2.http.Query;
 
 public interface SwapiService {
 
-    public static final String BASE_URL = "https://swapi.co/api/";
+    String BASE_URL = "https://swapi.co/api/";
 
     @GET("planets/")
     Call<CallPlanet>listPlanets(@Query("page")int page);
@@ -31,13 +31,12 @@ public interface SwapiService {
     @GET("people/")
     Call<CallPeople>listPeoples(@Query("page")int pagePeople);
 
-    @GET("starships/?page=1")
-    Call<CallStarships> listStarships();
-
-    @GET ("vehicles/?page=1")
-    Call<CallVehicles> listVehicles();
-
     @GET ("species/")
     Call<CallSpecies> listSpecies(@Query("page")int pageSpecie);
 
+    @GET("starships/")
+    Call<CallStarships> listStarships(@Query("page")int pageStarS);
+
+    @GET ("vehicles/?page=1")
+    Call<CallVehicles> listVehicles();
 }
