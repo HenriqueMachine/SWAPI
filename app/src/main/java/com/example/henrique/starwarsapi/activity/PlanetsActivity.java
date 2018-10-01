@@ -74,7 +74,6 @@ public class PlanetsActivity extends AppCompatActivity {
                     Log.i("E","auxTotal = " + auxTotal + " || " + "auxCount = " + auxCount + " || " +"auxVisible = " + auxVisible + " || ");
                     pageCurrent ++;
                     methodPlanets(pageCurrent);
-                    Toast.makeText(PlanetsActivity.this, "Page " + pageCurrent, Toast.LENGTH_SHORT).show();
                     loading = true;
                 }
             }

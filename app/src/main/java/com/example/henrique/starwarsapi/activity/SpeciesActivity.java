@@ -74,7 +74,6 @@ public class SpeciesActivity extends AppCompatActivity {
                     Log.i("E","auxTotal = " + auxTotal + " || " + "auxCount = " + auxCount + " || " +"auxVisible = " + auxVisible + " || ");
                     pageCurrent ++;
                     methosSpecies(pageCurrent);
-                    Toast.makeText(SpeciesActivity.this, "Page " + pageCurrent, Toast.LENGTH_SHORT).show();
                     loading = true;
                 }
             }

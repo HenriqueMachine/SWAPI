@@ -42,7 +42,7 @@ public class PeopleActivity extends AppCompatActivity {
         setContentView(R.layout.activity_people);
 
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerViewPeople);
+        recyclerView = findViewById(R.id.recyclerViewPeople);
         recyclerView.setLayoutManager(linearLayoutManager);
         people1 = new People();
         people1.type = 1;
@@ -75,7 +75,6 @@ public class PeopleActivity extends AppCompatActivity {
                     Log.i("E","auxTotal = " + auxTotal + " || " + "auxCount = " + auxCount + " || " +"auxVisible = " + auxVisible + " || ");
                     pageCurrent ++;
                     methodPlanets(pageCurrent);
-                    Toast.makeText(PeopleActivity.this, "Page " + pageCurrent, Toast.LENGTH_SHORT).show();
                     loading = true;
                 }
             }
@@ -117,13 +116,6 @@ public class PeopleActivity extends AppCompatActivity {
                         }
                     }
                 }
-                /**
-                 for(Planet p : list.results ){
-                 Log.i("E", String.format("NAME_PLANET: %s. \n", p.name));
-                 Log.i("E", "---------------");
-                 String aux = String.format("Name %s \n",p.name);
-                 }
-                 **/
             }
             @Override
             public void onFailure(Call<CallPeople> call, Throwable t) {

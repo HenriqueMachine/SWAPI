@@ -29,10 +29,6 @@ public class HomeWorldActivity extends AppCompatActivity {
     private List<Planet> planetList = new ArrayList<>();
     private RecyclerAdapterPlanets recyclerAdapterPlanets;
     private Planet fake;
-    private String stringURL;
-    private String[] cutURL;
-    private String savePos;
-    private int savePosInt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,11 +45,11 @@ public class HomeWorldActivity extends AppCompatActivity {
         recyclerView.setAdapter(recyclerAdapterPlanets);
 
         Intent it = getIntent();
-        stringURL = it.getStringExtra("Clickou" );
-        cutURL=stringURL.split("/");
-        savePos = cutURL[5];
-        Log.i("E", "StringPos >>> " + savePos );
-        savePosInt = Integer.valueOf(savePos);
+        String stringURL = it.getStringExtra("Clickou");
+        String[] cutURL = stringURL.split("/");
+        String savePos = cutURL[5];
+        Log.i("E", "StringPos >>> " + savePos);
+        int savePosInt = Integer.valueOf(savePos);
 
         methodPlanets(savePosInt);
     }
